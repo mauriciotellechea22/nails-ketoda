@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nails Ketoda | Uñas & Masajes · Montevideo</title>
+  <meta name="description" content="Nails Ketoda – Semipermanente, Semi en Manos y Pies, Masajes Relajantes y Descontracturantes. Reservá tu turno por WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #fdf5f0;
+      --blush: #f5dde6;
+      --rose: #d4607a;
+      --mauve: #b07878;
+      --dark: #1a0e14;
+      --black: #0d0508;
+      --gold: #c8a070;
+      --pink-soft: #f2c4ce;
+      --whatsapp: #25d366;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--dark); overflow-x:hidden; }
+
+    /* ── NAV ── */
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:900;
+      padding:1rem 2rem; display:flex; align-items:center;
+      justify-content:space-between; transition:background .3s, box-shadow .3s;
+    }
+    nav.scrolled { background:rgba(253,245,240,.96); backdrop-filter:blur(8px); box-shadow:0 2px 20px rgba(0,0,0,.08); }
+    .nav-logo { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:1.5rem; letter-spacing:.05em; color:var(--cream); text-decoration:none; transition:color .3s; }
+    nav.scrolled .nav-logo { color:var(--dark); }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { font-size:.8rem; letter-spacing:.15em; text-transform:uppercase; text-decoration:none; color:rgba(253,245,240,.8); font-weight:500; transition:color .3s; }
+    nav.scrolled .nav-links a { color:var(--dark); }
+    .nav-links a:hover { color:var(--rose); }
+    .nav-wsp { background:var(--rose)!important; color:#fff!important; padding:.45rem 1.1rem; border-radius:100px; font-size:.75rem!important; }
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:.4rem; }
+    .hamburger span { width:24px; height:2px; background:var(--cream); border-radius:2px; transition:.3s; }
+    nav.scrolled .hamburger span { background:var(--dark); }
+    @media(max-width:768px) {
+      .nav-links { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:var(--dark); flex-direction:column; align-items:center; justify-content:center; gap:2.5rem; z-index:800; }
+      .nav-links.open { display:flex; }
+      .nav-links a { font-size:1.2rem; color:var(--cream)!important; }
+      .hamburger { display:flex; z-index:900; }
+    }
+
+    /* ── HERO ── */
+    .hero { min-height:100vh; position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden; text-align:center; }
+    .hero-bg { position:absolute; inset:0; background:linear-gradient(135deg,#1a0e14 0%,#3a1a28 50%,#1a0e14 100%); z-index:0; }
+    .hero-img { position:absolute; inset:0; background-image:url('fotos/DUMGWnKEeUz_2.jpg'); background-size:cover; background-position:center; opacity:.22; z-index:1; }
+    .hero-content { position:relative; z-index:2; padding:2rem; max-width:700px; }
+    .hero-eyebrow { display:inline-block; font-size:.7rem; font-weight:600; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); margin-bottom:1.5rem; }
+    .hero-logo { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:clamp(4rem,14vw,9rem); color:#fff; line-height:.9; letter-spacing:-.01em; }
+    .hero-logo span { color:var(--rose); display:block; }
+    .hero-tagline { font-size:1rem; color:rgba(255,255,255,.55); margin-top:1.2rem; font-weight:300; letter-spacing:.08em; text-transform:uppercase; }
+    .hero-cta { margin-top:2.5rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+    .btn-wsp { background:var(--whatsapp); color:#fff; padding:.9rem 2rem; border-radius:100px; text-decoration:none; font-weight:600; font-size:.95rem; display:inline-flex; align-items:center; gap:.5rem; transition:transform .2s, box-shadow .2s; }
+    .btn-wsp:hover { transform:translateY(-3px); box-shadow:0 8px 25px rgba(37,211,102,.35); }
+    .btn-outline { border:1.5px solid rgba(255,255,255,.3); color:#fff; padding:.9rem 2rem; border-radius:100px; text-decoration:none; font-weight:500; font-size:.95rem; transition:border-color .2s, transform .2s; }
+    .btn-outline:hover { border-color:var(--rose); transform:translateY(-3px); }
+    .scroll-hint { position:absolute; bottom:2rem; left:50%; transform:translateX(-50%); color:rgba(255,255,255,.25); font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; animation:bounce 2s infinite; }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(7px)} }
+
+    /* ── PROMO STRIP ── */
+    .promo-strip { background:var(--rose); padding:.85rem 2rem; text-align:center; }
+    .promo-strip p { font-size:.85rem; font-weight:600; color:#fff; letter-spacing:.05em; }
+    .promo-strip span { opacity:.8; font-weight:400; }
+
+    /* ── SECCIÓN BASE ── */
+    .section { padding:5rem 1.5rem; }
+    .section-inner { max-width:1100px; margin:0 auto; }
+    .label { font-size:.7rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--rose); margin-bottom:.6rem; }
+    .title { font-family:'Barlow Condensed',sans-serif; font-size:clamp(2.5rem,6vw,4rem); font-weight:800; line-height:1; color:var(--dark); margin-bottom:2.5rem; }
+
+    /* ── SERVICIOS ── */
+    .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1.5rem; }
+    .service-card { background:#fff; border-radius:20px; padding:2rem 1.75rem; position:relative; overflow:hidden; box-shadow:0 2px 24px rgba(0,0,0,.06); transition:transform .25s, box-shadow .25s; }
+    .service-card:hover { transform:translateY(-5px); box-shadow:0 12px 40px rgba(212,96,122,.15); }
+    .service-card::after { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--rose),var(--gold)); }
+    .service-emoji { font-size:2.2rem; margin-bottom:.8rem; }
+    .service-badge { display:inline-block; background:var(--blush); color:var(--rose); font-size:.65rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; padding:.2rem .65rem; border-radius:100px; margin-bottom:.75rem; }
+    .service-name { font-family:'Barlow Condensed',sans-serif; font-size:1.35rem; font-weight:700; color:var(--dark); margin-bottom:.4rem; letter-spacing:.02em; }
+    .service-desc { font-size:.85rem; color:#888; line-height:1.55; margin-bottom:1.25rem; }
+    .service-price { font-family:'Barlow Condensed',sans-serif; font-size:2rem; font-weight:800; color:var(--rose); }
+    .service-price sup { font-size:1rem; font-weight:600; vertical-align:super; }
+
+    /* ── GALERÍA ── */
+    .gallery-section { background:var(--dark); padding:5rem 1.5rem; }
+    .gallery-section .label { color:var(--gold); }
+    .gallery-section .title { color:#fff; }
+    .gallery-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:.75rem; }
+    @media(max-width:600px) { .gallery-grid { grid-template-columns:repeat(2,1fr); } }
+    .gallery-item { position:relative; overflow:hidden; border-radius:12px; aspect-ratio:1; cursor:pointer; }
+    .gallery-item img { width:100%; height:100%; object-fit:cover; transition:transform .4s; }
+    .gallery-item:hover img { transform:scale(1.07); }
+    .gallery-item.featured { grid-column:span 2; aspect-ratio:16/9; }
+
+    /* ── NOSOTROS ── */
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+    @media(max-width:768px) { .about-grid { grid-template-columns:1fr; gap:2rem; } }
+    .about-img-wrap { position:relative; border-radius:24px; overflow:hidden; aspect-ratio:4/5; }
+    .about-img-wrap img { width:100%; height:100%; object-fit:cover; }
+    .about-img-wrap::before { content:''; position:absolute; inset:0; background:linear-gradient(180deg,transparent 50%,rgba(26,14,20,.6) 100%); z-index:1; }
+    .about-text { display:flex; flex-direction:column; gap:1.5rem; }
+    .about-stat { padding:1.5rem; background:#fff; border-radius:16px; box-shadow:0 2px 16px rgba(0,0,0,.06); }
+    .stat-num { font-family:'Barlow Condensed',sans-serif; font-size:2.8rem; font-weight:900; color:var(--rose); line-height:1; }
+    .stat-label { font-size:.85rem; color:#888; margin-top:.25rem; }
+
+    /* ── CTA FINAL ── */
+    .cta-section { background:linear-gradient(135deg,#1a0e14,#3a1a28); padding:6rem 1.5rem; text-align:center; }
+    .cta-section .label { color:var(--gold); }
+    .cta-section .title { color:#fff; max-width:540px; margin:0 auto 2rem; }
+    .cta-section p { color:rgba(255,255,255,.5); font-size:.95rem; margin-bottom:2.5rem; }
+    .btn-wsp-lg { background:var(--whatsapp); color:#fff; padding:1.1rem 2.5rem; border-radius:100px; text-decoration:none; font-size:1.1rem; font-weight:700; display:inline-flex; align-items:center; gap:.6rem; transition:transform .2s, box-shadow .2s; }
+    .btn-wsp-lg:hover { transform:translateY(-3px); box-shadow:0 10px 30px rgba(37,211,102,.4); }
+
+    /* ── FOOTER ── */
+    footer { background:var(--black); padding:2rem; text-align:center; }
+    footer p { color:rgba(255,255,255,.3); font-size:.78rem; }
+    footer a { color:var(--rose); text-decoration:none; }
+
+    /* ── LIGHTBOX ── */
+    .lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,.92); z-index:9999; align-items:center; justify-content:center; }
+    .lightbox.open { display:flex; }
+    .lightbox img { max-width:90vw; max-height:90vh; object-fit:contain; border-radius:8px; }
+    .lightbox-close { position:absolute; top:1.5rem; right:1.5rem; color:#fff; font-size:2rem; cursor:pointer; opacity:.7; transition:opacity .2s; }
+    .lightbox-close:hover { opacity:1; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">KETODA</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#nosotros">Nosotras</a></li>
+    <li><a href="https://wa.me/598099808626" class="nav-wsp">Reservar turno</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-img"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">✦ Estética Manos & Pies · Montevideo</div>
+    <h1 class="hero-logo">NAILS<span>KETODA</span></h1>
+    <p class="hero-tagline">Uñas · Masajes · Bienestar</p>
+    <div class="hero-cta">
+      <a href="https://wa.me/598099808626" class="btn-wsp">📲 Reservar turno</a>
+      <a href="#servicios" class="btn-outline">Ver servicios</a>
+    </div>
+  </div>
+  <div class="scroll-hint">↓ scroll</div>
+</section>
+
+<!-- PROMO -->
+<div class="promo-strip">
+  <p>🔥 Promos de verano &nbsp;<span>solo durante Enero y Febrero — ¡No te las pierdas!</span></p>
+</div>
+
+<!-- SERVICIOS -->
+<section class="section" id="servicios">
+  <div class="section-inner">
+    <p class="label">Lo que hacemos</p>
+    <h2 class="title">Nuestros servicios</h2>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-emoji">💅</div>
+        <div class="service-badge">Promo verano</div>
+        <div class="service-name">Semipermanente Express</div>
+        <div class="service-desc">Esmalte de larga duración sin tiempos de espera. Color y brillo que dura semanas.</div>
+        <div class="service-price"><sup>$</sup>500</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-emoji">🤲</div>
+        <div class="service-badge">Promo verano</div>
+        <div class="service-name">Semi Manos & Pies</div>
+        <div class="service-desc">El pack completo para el verano. Semipermanente en manos y pies en una sola sesión.</div>
+        <div class="service-price"><sup>$</sup>1.000</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-emoji">🧘</div>
+        <div class="service-badge">Promo verano</div>
+        <div class="service-name">Masaje Relajante</div>
+        <div class="service-desc">1 hora para desconectarte del mundo. Técnica suave y envolvente para liberar el estrés.</div>
+        <div class="service-price"><sup>$</sup>800</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-emoji">💆</div>
+        <div class="service-badge">Promo verano</div>
+        <div class="service-name">Masaje Descontracturante</div>
+        <div class="service-desc">Para tensiones musculares profundas. Sentite nueva desde la primera sesión.</div>
+        <div class="service-price"><sup>$</sup>1.000</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="gallery-section" id="galeria">
+  <div class="section-inner">
+    <p class="label">Nuestro trabajo</p>
+    <h2 class="title">Galería</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item featured" onclick="openLightbox('fotos/DUMGWnKEeUz_2.jpg')">
+        <img src="fotos/DUMGWnKEeUz_2.jpg" alt="Semi manos y pies" loading="lazy">
+      </div>
+      <div class="gallery-item" onclick="openLightbox('fotos/DT0aw8rkV-W_1.jpg')">
+        <img src="fotos/DT0aw8rkV-W_1.jpg" alt="Semipermanente fucsia" loading="lazy">
+      </div>
+      <div class="gallery-item" onclick="openLightbox('fotos/DTsbmEGjnlE.jpg')">
+        <img src="fotos/DTsbmEGjnlE.jpg" alt="Semi en pies turquesa" loading="lazy">
+      </div>
+      <div class="gallery-item" onclick="openLightbox('fotos/DWFciLYmAtB.jpg')">
+        <img src="fotos/DWFciLYmAtB.jpg" alt="Nail art rosa" loading="lazy">
+      </div>
+      <div class="gallery-item" onclick="openLightbox('fotos/DVR2tkHkfTC.jpg')">
+        <img src="fotos/DVR2tkHkfTC.jpg" alt="Trabajo de uñas" loading="lazy">
+      </div>
+      <div class="gallery-item" onclick="openLightbox('fotos/DUMGWnKEeUz_1.jpg')">
+        <img src="fotos/DUMGWnKEeUz_1.jpg" alt="Uñas blancas" loading="lazy">
+      </div>
+      <div class="gallery-item" onclick="openLightbox('fotos/DUg_iSjEdTg.jpg')">
+        <img src="fotos/DUg_iSjEdTg.jpg" alt="Uñas naturales" loading="lazy">
+      </div>
+      <div class="gallery-item" onclick="openLightbox('fotos/DTrLn7nEf9Y.jpg')">
+        <img src="fotos/DTrLn7nEf9Y.jpg" alt="Resultado final" loading="lazy">
+      </div>
+      <div class="gallery-item" onclick="openLightbox('fotos/DTyMp-vEa2U.jpg')">
+        <img src="fotos/DTyMp-vEa2U.jpg" alt="Semi express" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section class="section" id="nosotros">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <img src="fotos/DT3ngY0EafY_1.jpg" alt="Nails Ketoda trabajo">
+      </div>
+      <div class="about-text">
+        <div>
+          <p class="label">Quiénes somos</p>
+          <h2 class="title">Pasión por<br>las uñas</h2>
+          <p style="color:#666; font-size:.95rem; line-height:1.7;">Somos un estudio de estética especializado en uñas y bienestar ubicado en Montevideo. Trabajamos con productos de calidad y técnicas actuales para darte resultados que duren y te hagan sentir bien.</p>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+          <div class="about-stat">
+            <div class="stat-num">+500</div>
+            <div class="stat-label">Clientas satisfechas</div>
+          </div>
+          <div class="about-stat">
+            <div class="stat-num">4</div>
+            <div class="stat-label">Servicios premium</div>
+          </div>
+          <div class="about-stat">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Productos de calidad</div>
+          </div>
+          <div class="about-stat">
+            <div class="stat-num">★★★★★</div>
+            <div class="stat-label">Atención personalizada</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section">
+  <p class="label">Contacto</p>
+  <h2 class="title">¿Lista para tu<br>próxima sesión?</h2>
+  <p>Escribinos por WhatsApp y reservá tu turno. Las promos son por tiempo limitado.</p>
+  <a href="https://wa.me/598099808626" class="btn-wsp-lg">📱 Escribir al 099 808 626</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Nails Ketoda · Montevideo, Uruguay ·
+    <a href="https://instagram.com/nails_ketoda" target="_blank">@nails_ketoda</a>
+  </p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close">✕</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+  // Nav scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Hamburger
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+  });
+
+  // Lightbox
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
+</script>
+</body>
+</html>

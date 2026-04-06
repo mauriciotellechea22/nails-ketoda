@@ -1,0 +1,7 @@
+{
+  "name": "nails-ketoda-v2",
+  "version": "2.0.0",
+  "scripts": {
+    "start": "npx serve -p $PORT ."
+  }
+}
